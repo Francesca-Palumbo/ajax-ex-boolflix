@@ -3,10 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>Boolflix</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -14,18 +17,30 @@
                 <h1>BOOLFLIX</h1>
             </div>
             <div class="header-right">
-                <input type="text" id="testo-ricerca">
-                <button id="pulsante-ricerca" type="" name="">CERCA</button>
+                <input type="text" id="testo-ricerca" placeholder="Cerca...">
+                <button id="pulsante-ricerca" >CERCA</button>
             </div>
         </header>
-        <main id="risulati-ajax">
-            <div class="card-risultati-chiamata">
-                <ul>
-                    <li></li>
-                </ul>
-            </div>
-        </main>
+        <div id="wrapper">
+            <h2 class="titolo-ricerca">
+                Risultati ricerca per:
+                "<span id="ricerca-utente"></span>"
+            </h2>
+            <main id="risultati-ajax"></main>
+        </div>
 
+        <script id="card-template" type="text/x-handlebars-template">
+            <ul class="card">
+                <li>
+                    <img class="copertina" src="{{ path_copertina }}" alt="{{titolo}}">
+                </li>
+                <li>Titolo: {{ titolo }}</li>
+                <li>Titolo originale: {{ titolo_originale }}</li>
+                <li>Lingua: {{{ lingua }}}</li>
+                <li>Voto: {{{ voto }}}</li>
+                <li>Tipo: {{{ tipo }}}</li>
+            </ul>
+        </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="main.js" charset="utf-8"></script>
