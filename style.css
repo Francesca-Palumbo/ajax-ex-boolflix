@@ -34,10 +34,6 @@ header {
     margin-right: 40px;
 }
 
-#risultati-ajax{
-    margin-top: 50px;
-}
-
 #pulsante-ricerca {
     background-color: black;
     border: 0;
@@ -49,7 +45,7 @@ header {
 }
 
 #wrapper {
-    padding: 150px 50px 50px;
+    padding: 100px 50px 50px;
 }
 
 .titolo-ricerca {
@@ -60,21 +56,25 @@ header {
 
 .titolo-ricerca.visible {
     display: block;
+    margin-bottom: 100px;
 }
 
 #risultati-ajax {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 50px;
+    justify-content: center;
 }
 
-.card {
-    width: 350px;
+.list {
+    width: 100%;
+    height: 100%;
     padding: 10px;
     margin: 10px;
     color: white;
     border: 1px solid white;
-    background-color: black;
     list-style-type: none;
+    transform: perspective(500px) translateZ(60px);
 }
 
 .bandiere-img{
@@ -87,4 +87,52 @@ header {
 
 .copertina{
     width: 100%;
+    height: 100%;
+}
+
+.face.front img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+}
+
+.card{
+    position: relative;
+    width: 350px;
+    height: 450px;
+    transform-style: preserve-3d;
+}
+
+.card .face{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 70%;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transition: 2s ease-in-out;
+    transform: perspective(500px) rotateY(0deg);
+    z-index: -1;
+    background-color: black;
+}
+
+.card .face.back{
+    /* background-color: yellow; */
+    color: #fff;
+    transform: perspective(500px) rotateY(180deg);
+    overflow-x: hidden;
+    padding-top: 15px;
+}
+
+.card:hover .face.front{
+    transform: perspective(500px) rotateY(180deg);
+    z-index: 9999;
+}
+
+.card:hover .face.back{
+    transform: perspective(500px) rotateY(360deg);
 }

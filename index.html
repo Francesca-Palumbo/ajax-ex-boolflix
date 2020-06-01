@@ -30,16 +30,24 @@
         </div>
 
         <script id="card-template" type="text/x-handlebars-template">
-            <ul class="card">
-                <li>
-                    <img class="copertina" src="{{ path_copertina }}" alt="{{titolo}}">
-                </li>
-                <li>Titolo: {{ titolo }}</li>
-                <li>Titolo originale: {{ titolo_originale }}</li>
-                <li>Lingua: {{{ lingua }}}</li>
-                <li>Voto: {{{ voto }}}</li>
-                <li>Tipo: {{{ tipo }}}</li>
-            </ul>
+        <div class="card">
+            <div class="face front">
+                    <li>
+                        <img class="copertina" src="{{ path_copertina }}" alt="{{titolo}}">
+                    </li>
+
+            </div>
+            <div class="face back">
+                <ul class="list">
+                    <li>Titolo: {{ titolo }}</li>
+                    <li>Titolo originale: {{ titolo_originale }}</li>
+                    <li>Lingua: {{{ lingua }}}</li>
+                    <li>Voto: {{{ voto }}}</li>
+                    <li>Tipo: {{{ tipo }}}</li>
+                    <li>Tipo: {{ trama }}</li>
+                </ul>
+            </div>
+        </div>
         </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

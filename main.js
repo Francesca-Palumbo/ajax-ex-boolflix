@@ -134,13 +134,20 @@ $(document).ready(function() {
     // == (diverso sia nel significato che nel tipo)
         if (dati.poster_path !== null) {
             //  se è diverso, costruisco l'URL
-            var img = api_img_url_base + dimensione_img + dati.poster_path;
+            var image = api_img_url_base + dimensione_img + dati.poster_path;
         } else {
             // altrimenti metto il percorso al mio file locale
             // var img = 'img/notavailable.jpg';
-            var imgs = '../img/notavailable.jpg';
+            // var imgs = 'image.jpg';
+            // var imgs = "images.jpg";
+            // var imgs = ".../img/images.jpg";
+            // var imgs = "img/not.png";
             // var imgs = '.../img/notavailable.jpg';
             // // var imgs = 'not.jpg';
+            var img = document.createElement("img");
+            img.src = "not.png";
+            var src = document.getElementByClassName("front");
+            src.appendChild(img);
         }
 
         //creo la variabile segnaposto per associare i placeholder alle chiavi ottenute dalla chiamata
@@ -153,7 +160,8 @@ $(document).ready(function() {
             'voto': stelline(dimezzo_voti(dati.vote_average)),
             'tipo' : tipologia,
             // fatta con la prima parte dell'URL +concateno+ la dimensione + la proprietà che leggo dall'oggetto
-            'path_copertina': api_img_url_base + dimensione_img + dati.poster_path
+            'path_copertina': api_img_url_base + dimensione_img + dati.poster_path,
+            'trama' : dati.overview
         };
 
         var html_card = template(placeholder);
